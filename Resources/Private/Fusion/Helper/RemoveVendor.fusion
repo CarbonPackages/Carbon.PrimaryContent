@@ -1,0 +1,20 @@
+// If you want to remove somethe vendor from the NodeTypeName,
+// this helper is for you. Example:
+/*
+prototype(Carbon.PrimaryContent:NodeTypeName) {
+    @process.removeVendorName = Carbon.PrimaryContent:RemoveVendors {
+        vendors = ${['Vendor', 'Foo', 'Bar']}
+    }
+}
+*/
+
+prototype(Carbon.PrimaryContent:RemoveVendors) < prototype(Neos.Fusion:Value) {
+    vendors = ${Configuration.setting('Carbon.PrimaryContent.removeVendors')}
+    pattern = ${'/(' + Array.join(this.vendors, '|') + ')(\.|-)/i'}
+    string = ${value}
+    replace = ''
+
+    value = ${String.pregReplace(this.string, this.pattern, this.replace)}
+
+    @if.hasVendorsAndValue = ${!Array.isEmpty(this.vendors) && this.value}
+}

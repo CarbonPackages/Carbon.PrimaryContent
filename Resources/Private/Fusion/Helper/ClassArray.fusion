@@ -1,0 +1,25 @@
+// Raw Array of the classes for the `Carbon.PrimaryContent:Attributes`.
+// Can be used also for the `body` tag
+prototype(Carbon.PrimaryContent:ClassArray) < prototype(Neos.Fusion:RawArray) {
+    config = ${Configuration.setting('Carbon.PrimaryContent')}
+
+    namespace = ${this.config.class.namespace}
+    component = ${this.config.class.component}
+    prepend = ${this.config.class.prepend}
+    parents = ${q(documentNode).parents()}
+    count = ${this.parents.count()}
+    subpagesFilter = ${this.config.subpagesFilter}
+
+    @ignoreProperties = ${['config', 'namespace', 'component', 'prepend', 'parents', 'count', 'subpagesFilter']}
+    @context.prepend = ${this.prepend}
+
+    element = ${this.namespace + '-' + this.component}
+    layout = ${layout ? String.toLowerCase('layout-' + String.replace(layout, '.', '-')) : false}
+    level = ${this.prepend + (this.count == 0 ? 'index' : 'deep' + this.count)}
+    subpages = ${this.prepend + (this.parents.is() && q(documentNode).children(this.subpagesFilter).filter('[_hiddenInIndex=false]').is() ? 'hassub' : 'nosub')}
+    subpages.@if.isNotIndex = ${!!this.count}
+    type = Carbon.PrimaryContent:NodeTypeName {
+        node = ${documentNode}
+        prepend = ${prepend}
+    }
+}

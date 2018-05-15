@@ -1,0 +1,3 @@
+prototype(Neos.Neos:Content) {
+    attributes.class.@process.nodeType.@context.nodeTypeClassName = Carbon.PrimaryContent:NodeTypeName
+}

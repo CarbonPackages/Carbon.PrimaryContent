@@ -1,0 +1,65 @@
+// This is an own implementation from PrimaryContent. If a document node has
+// a prototype with a .MainContent or a .PlainContent suffix this prototype
+// will be used as content. Otherwise, the ContentCollection will be rendered.
+// It is also possible to pass your own content.
+
+prototype(Carbon.PrimaryContent:PrimaryContent) < prototype(Neos.Fusion:Component) {
+    nodePath = ${Configuration.setting('Carbon.PrimaryContent.nodePath')}
+    render = Neos.Fusion:RawArray {
+        MainContent = true
+        PlainContent = true
+        ContentCollection = true
+    }
+    nodeType = ${q(node).property('_nodeType')}
+
+    tagName = ${Configuration.setting('Carbon.PrimaryContent.tagName')}
+    attributes = Neos.Fusion:Attributes {
+        id = ${Configuration.setting('Carbon.PrimaryContent.id')}
+        aria-label = ${Configuration.setting('Carbon.PrimaryContent.ariaLabel')}
+        class = Carbon.PrimaryContent:ClassArray
+    }
+    content = null
+
+    renderer = Neos.Fusion:Case {
+        hasCustomContent {
+            @position = 'end 999996'
+            condition = ${props.content}
+            renderer = Neos.Fusion:Tag {
+                tagName = ${props.tagName}
+                attributes = ${props.attributes}
+                content = ${props.content}
+            }
+        }
+        mainContent {
+            @position = 'end 999997'
+            condition = Neos.Fusion:CanRender {
+                type = ${props.nodeType + '.MainContent'}
+                @process.isEnabled = ${props.render.MainContent ? value : false}
+            }
+            renderer = Neos.Fusion:Tag {
+                tagName = ${props.tagName}
+                attributes = ${props.attributes}
+                content = Neos.Fusion:Renderer {
+                    type = ${props.nodeType + '.MainContent'}
+                }
+            }
+        }
+        plainContent {
+            @position = 'end 999998'
+            condition = Neos.Fusion:CanRender {
+                type = ${props.nodeType + '.PlainContent'}
+                @process.isEnabled = ${props.render.PlainContent ? value : false}
+            }
+            type = ${props.nodeType + '.PlainContent'}
+        }
+        contentCollection {
+            @position = 'end 999999'
+            condition = ${props.render.ContentCollection && props.nodePath}
+            renderer = Neos.Neos:ContentCollection {
+                tagName = ${props.tagName}
+                attributes = ${props.attributes}
+                nodePath = ${props.nodePath}
+            }
+        }
+    }
+}

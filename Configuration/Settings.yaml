@@ -1,0 +1,18 @@
+Neos:
+  Neos:
+    fusion:
+      autoInclude:
+        Carbon.PrimaryContent: true
+
+Carbon:
+  PrimaryContent:
+    nodePath: main
+    tagName: main
+    id: main
+    ariaLabel: Content
+    removeVendors: []
+    class:
+      namespace: main
+      component: element
+      prepend: '-'
+    subpagesFilter: '[instanceof Neos.Neos:Document][!instanceof Carbon.FrontendRedirect:ToParentPage]'
