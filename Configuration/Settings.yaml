@@ -15,4 +15,4 @@ Carbon:
       namespace: main
       component: element
       prepend: '-'
-    subpagesFilter: '[instanceof Neos.Neos:Document][!instanceof Carbon.FrontendRedirect:ToParentPage]'
+    subpagesFilter: '[instanceof Neos.Neos:Document][!instanceof Carbon.Navigation:RedirectToParentPage]'
