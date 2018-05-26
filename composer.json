@@ -5,7 +5,7 @@
     "license": "MIT",
     "keywords": ["flow", "neos", "fusion", "helper", "content", "carbon"],
     "require": {
-        "neos/neos": "~4.0"
+        "neos/neos": "~3.0 || ~4.0"
     },
     "authors": [
         {
