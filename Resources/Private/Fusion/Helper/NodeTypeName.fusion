@@ -5,7 +5,7 @@ prototype(Carbon.PrimaryContent:NodeTypeName) < prototype(Neos.Fusion:Value) {
 
     prepend = ''
     append = ''
-    value = ${this.prepend + String.toLowerCase(String.pregReplace(this.string, '/[[:^alnum:]]/', '-')) + this.append}
+    value = ${this.prepend + Carbon.String.convertCamelCase(this.string) + this.append}
 
     @process.removeVendor = Carbon.PrimaryContent:RemoveVendors
 }
