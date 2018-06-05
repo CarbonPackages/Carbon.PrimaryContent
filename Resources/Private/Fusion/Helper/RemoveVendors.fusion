@@ -1,4 +1,4 @@
-// If you want to remove somethe vendor from the NodeTypeName,
+// If you want to remove some of the vendor from the NodeTypeName,
 // this helper is for you. Example:
 /*
 prototype(Carbon.PrimaryContent:NodeTypeName) {

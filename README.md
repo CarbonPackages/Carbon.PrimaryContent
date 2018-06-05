@@ -11,6 +11,28 @@
 
 This is an own implementation from PrimaryContent. If a document node has a prototype with a `.MainContent` or a `.PlainContent` suffix this prototype will be used as content. Otherwise, the ContentCollection will be rendered. It is also possible to pass your own content.
 
+## [`Carbon.PrimaryContent:ClassArray`](Resources/Private/Fusion/Helper/ClassArray.fusion)
+
+Raw Array of the css classes for the `Carbon.PrimaryContent:PrimaryContent`.
+Can be used also for the `body` tag.
+
+## [`Carbon.PrimaryContent:NodeTypeName`](Resources/Private/Fusion/Helper/NodeTypeName.fusion)
+
+Convert a name from a nodetype to a `hyphen-case-string`. Make use of `Carbon.PrimaryContent:RemoveVendors`.
+
+## [`Carbon.PrimaryContent:RemoveVendors`](Resources/Private/Fusion/Helper/RemoveVendors.fusion)
+
+If you want to remove some of the vendor names from the NodeTypeName, this helper is for you. Per default it will read the setting `Carbon.PrimaryContent.removeVendors`
+
+Example:
+
+```elm
+prototype(Carbon.PrimaryContent:NodeTypeName) {
+    @process.removeVendorName = Carbon.PrimaryContent:RemoveVendors {
+        vendors = ${['Vendor', 'Foo', 'Bar']}
+    }
+}
+```
 
 ## License
 

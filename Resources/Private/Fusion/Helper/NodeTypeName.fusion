@@ -7,5 +7,5 @@ prototype(Carbon.PrimaryContent:NodeTypeName) < prototype(Neos.Fusion:Value) {
     append = ''
     value = ${this.prepend + Carbon.String.convertCamelCase(this.string) + this.append}
 
-    @process.removeVendor = Carbon.PrimaryContent:RemoveVendors
+    @process.removeVendors = Carbon.PrimaryContent:RemoveVendors
 }

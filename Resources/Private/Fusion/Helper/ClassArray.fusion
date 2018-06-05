@@ -1,4 +1,4 @@
-// Raw Array of the classes for the `Carbon.PrimaryContent:Attributes`.
+// Raw Array of the classes for the `Carbon.PrimaryContent:PrimaryContent`.
 // Can be used also for the `body` tag
 prototype(Carbon.PrimaryContent:ClassArray) < prototype(Neos.Fusion:RawArray) {
     config = ${Configuration.setting('Carbon.PrimaryContent')}
