@@ -1,11 +1,11 @@
 // Convert a name from a nodetype to a `hyphen-case-string`
 prototype(Carbon.PrimaryContent:NodeTypeName) < prototype(Neos.Fusion:Value) {
     node = ${node}
-    string = ${String.replace(q(this.node).property('_nodeType.name'), ':', '')}
+    string = ${q(this.node).property('_nodeType.name')}
 
     prepend = ''
     append = ''
-    value = ${this.prepend + Carbon.String.convertCamelCase(this.string) + this.append}
+    value = ${this.prepend + Carbon.String.urlize(Carbon.String.convertCamelCase(this.string)) + this.append}
 
     @process.removeVendors = Carbon.PrimaryContent:RemoveVendors
 }
