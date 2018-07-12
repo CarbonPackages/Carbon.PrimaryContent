@@ -32,7 +32,7 @@ prototype(Carbon.PrimaryContent:PrimaryContent) < prototype(Neos.Fusion:Componen
         }
         mainContent {
             @position = 'end 999997'
-            condition = Neos.Fusion:CanRender {
+            condition = Ttree.Fusion:CanRender {
                 type = ${props.nodeType + '.MainContent'}
                 @process.isEnabled = ${props.render.MainContent ? value : false}
             }
@@ -46,7 +46,7 @@ prototype(Carbon.PrimaryContent:PrimaryContent) < prototype(Neos.Fusion:Componen
         }
         plainContent {
             @position = 'end 999998'
-            condition = Neos.Fusion:CanRender {
+            condition = Ttree.Fusion:CanRender {
                 type = ${props.nodeType + '.PlainContent'}
                 @process.isEnabled = ${props.render.PlainContent ? value : false}
             }
