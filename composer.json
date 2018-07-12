@@ -3,9 +3,16 @@
     "type": "neos-carbon",
     "description": "Extended implementation from PrimaryContent",
     "license": "MIT",
-    "keywords": ["flow", "neos", "fusion", "helper", "content", "carbon"],
+    "keywords": [
+        "flow",
+        "neos",
+        "fusion",
+        "helper",
+        "content",
+        "carbon"
+    ],
     "require": {
-        "neos/neos": "~3.0 || ~4.0",
+        "neos/neos": "~4.0",
         "carbon/eel": "~1.0"
     },
     "authors": [
