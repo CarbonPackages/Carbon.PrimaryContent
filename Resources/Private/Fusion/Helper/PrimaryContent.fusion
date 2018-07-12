@@ -10,7 +10,7 @@ prototype(Carbon.PrimaryContent:PrimaryContent) < prototype(Neos.Fusion:Componen
         PlainContent = true
         ContentCollection = true
     }
-    nodeType = ${q(node).property('_nodeType')}
+    nodeType = ${q(node).property('_nodeType.name')}
 
     tagName = ${Configuration.setting('Carbon.PrimaryContent.tagName')}
     attributes = Neos.Fusion:Attributes {
