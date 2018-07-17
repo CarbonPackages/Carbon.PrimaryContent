@@ -14,7 +14,10 @@ prototype(Carbon.PrimaryContent:ClassArray) < prototype(Neos.Fusion:RawArray) {
     @context.prepend = ${this.prepend}
 
     element = ${this.namespace + '-' + this.component}
-    layout = ${layout ? String.toLowerCase('layout-' + String.replace(layout, '.', '-')) : false}
+    layout = Carbon.PrimaryContent:NodeTypeName {
+        @if.hasLayout = ${layout}
+        string = ${layout}
+    }
     level = ${this.prepend + (this.count == 0 ? 'index' : 'deep' + this.count)}
     subpages = ${this.prepend + (this.parents.is() && q(documentNode).children(this.subpagesFilter).filter('[_hiddenInIndex=false]').is() ? 'hassub' : 'nosub')}
     subpages.@if.isNotIndex = ${!!this.count}

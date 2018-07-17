@@ -2,10 +2,9 @@
 prototype(Carbon.PrimaryContent:NodeTypeName) < prototype(Neos.Fusion:Value) {
     node = ${node}
     string = ${q(this.node).property('_nodeType.name')}
+    string.@process.removeVendors = Carbon.PrimaryContent:RemoveVendors
 
     prepend = ''
     append = ''
     value = ${this.prepend + Carbon.String.urlize(Carbon.String.convertCamelCase(this.string)) + this.append}
-
-    @process.removeVendors = Carbon.PrimaryContent:RemoveVendors
 }
