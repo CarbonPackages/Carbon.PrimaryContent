@@ -1,0 +1,20 @@
+prototype(Carbon.PrimaryContent:Tag) < prototype(Neos.Fusion:Component) {
+    tagName = null
+    attributes = null
+    content = null
+
+    renderer = Neos.Fusion:Case {
+        hasTagName {
+            condition = ${props.tagName}
+            renderer = Neos.Fusion:Tag {
+                tagName = ${props.tagName}
+                attributes = ${props.attributes}
+                content = ${props.content}
+            }
+        }
+        default {
+            condition = true
+            renderer = ${props.content}
+        }
+    }
+}

@@ -24,7 +24,7 @@ prototype(Carbon.PrimaryContent:PrimaryContent) < prototype(Neos.Fusion:Componen
         hasCustomContent {
             @position = 'end 999996'
             condition = ${props.content}
-            renderer = Neos.Fusion:Tag {
+            renderer = Carbon.PrimaryContent:Tag {
                 tagName = ${props.tagName}
                 attributes = ${props.attributes}
                 content = ${props.content}
@@ -36,7 +36,7 @@ prototype(Carbon.PrimaryContent:PrimaryContent) < prototype(Neos.Fusion:Componen
                 type = ${props.nodeType + '.MainContent'}
                 @process.isEnabled = ${props.render.MainContent ? value : false}
             }
-            renderer = Neos.Fusion:Tag {
+            renderer = Carbon.PrimaryContent:Tag {
                 tagName = ${props.tagName}
                 attributes = ${props.attributes}
                 content = Neos.Fusion:Renderer {
@@ -53,12 +53,20 @@ prototype(Carbon.PrimaryContent:PrimaryContent) < prototype(Neos.Fusion:Componen
             type = ${props.nodeType + '.PlainContent'}
         }
         contentCollection {
-            @position = 'end 999999'
-            condition = ${props.render.ContentCollection && props.nodePath}
+            @position = 'end 999998'
+            condition = ${props.render.ContentCollection && props.nodePath && (props.tagName || node.context.inBackend)}
             renderer = Neos.Neos:ContentCollection {
-                tagName = ${props.tagName}
+                tagName = ${props.tagName ? props.tagName : 'div'}
                 attributes = ${props.attributes}
                 nodePath = ${props.nodePath}
+            }
+        }
+        contentCollectionNoTagAndLive {
+            @position = 'end 999999'
+            condition = ${props.render.ContentCollection && props.nodePath && node.context.live}
+            renderer = Neos.Fusion:Value {
+                @context.node = ${Neos.Node.nearestContentCollection(node, props.nodePath)}
+                value = Neos.Neos:ContentCollectionRenderer
             }
         }
     }
