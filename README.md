@@ -10,7 +10,7 @@
 | Version | Neos |
 | ------- | ---- |
 | 1.\*    | 3.\* |
-| 2.\*    | 4.\* |
+| 3.\*    | 4.\* |
 
 ## [`Carbon.PrimaryContent:PrimaryContent`](Resources/Private/Fusion/Helper/PrimaryContent.fusion)
 
