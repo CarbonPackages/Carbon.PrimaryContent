@@ -6,7 +6,7 @@ prototype(Carbon.PrimaryContent:ClassArray) < prototype(Neos.Fusion:RawArray) {
     namespace = ${this.config.class.namespace}
     component = ${this.config.class.component}
     prepend = ${this.config.class.prepend}
-    parents = ${q(documentNode).parents()}
+    parents = ${q(documentNode).parents('[instanceof Neos.Neos:Document]')}
     count = ${this.parents.count()}
     subpagesFilter = ${this.config.subpagesFilter}
 
