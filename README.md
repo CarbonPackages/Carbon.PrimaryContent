@@ -7,10 +7,11 @@
 
 # Carbon.PrimaryContent Package for Neos CMS
 
-| Version | Neos |
-| ------- | ---- |
-| 1.\*    | 3.\* |
-| 3.\*    | 4.\* |
+| Version  | Neos       |
+| -------- | ---------- |
+| 1.\*     | 3.\*       |
+| 3.\*     | 4.\*       |
+| >= 3.0.3 | 4.\*, 5.\* |
 
 ## [`Carbon.PrimaryContent:PrimaryContent`](Resources/Private/Fusion/Helper/PrimaryContent.fusion)
 
