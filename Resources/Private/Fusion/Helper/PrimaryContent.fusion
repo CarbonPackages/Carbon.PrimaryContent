@@ -5,7 +5,7 @@
 
 prototype(Carbon.PrimaryContent:PrimaryContent) < prototype(Neos.Fusion:Component) {
     nodePath = ${Configuration.setting('Carbon.PrimaryContent.nodePath')}
-    render = Neos.Fusion:RawArray {
+    render = Neos.Fusion:DataStructure {
         MainContent = true
         PlainContent = true
         ContentCollection = true

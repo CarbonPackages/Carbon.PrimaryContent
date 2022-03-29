@@ -1,6 +1,6 @@
 // Raw Array of the classes for the `Carbon.PrimaryContent:PrimaryContent`.
 // Can be used also for the `body` tag
-prototype(Carbon.PrimaryContent:ClassArray) < prototype(Neos.Fusion:RawArray) {
+prototype(Carbon.PrimaryContent:ClassArray) < prototype(Neos.Fusion:DataStructure) {
     config = ${Configuration.setting('Carbon.PrimaryContent')}
 
     namespace = ${this.config.class.namespace}
